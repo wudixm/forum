@@ -1,0 +1,15 @@
+(use forum.core)
+(use 'forum.core)
+(-main)
+exit
+(use 'forum.core)
+(def server (-main))
+(stop server)
+exit
+(use 'forum.core)
+(mytest)
+(mytest "fdafdsa")
+(type myapp)
+(def server (run-server myapp {:port 8080}))
+(server :timeout 10)
+exit

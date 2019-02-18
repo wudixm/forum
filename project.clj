@@ -14,4 +14,5 @@
                  [ring/ring-core "1.6.3"]
                  [org.clojure/data.json "0.2.6"]
                  ]
+  :main forum.core
   )
