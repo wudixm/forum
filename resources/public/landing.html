@@ -15,6 +15,81 @@
 
     <!-- Custom styles for this template -->
     <link href="css/heroic-features.css" rel="stylesheet">
+    <style>
+        .list-group-item>.badge {
+            float: right;
+        }
+        .bs-example>.list-group {
+            max-width: 400px;
+        }
+        .badge {
+            display: inline-block;
+            min-width: 10px;
+            padding: 3px 7px;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 1;
+            color: #fff;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            background-color: #777;
+            border-radius: 10px;
+        }
+body {
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+}
+
+.panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+div {
+    display: block;
+}
+
+.panel-heading {
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+
+.panel-primary {
+    border-color: #337ab7;
+}
+
+.panel-primary>.panel-heading {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #337ab7;
+}
+.panel-primary>.panel-heading {
+    background-image: -webkit-linear-gradient(top,#337ab7 0,#2e6da4 100%);
+    background-image: -o-linear-gradient(top,#337ab7 0,#2e6da4 100%);
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#337ab7),to(#2e6da4));
+    background-image: linear-gradient(to bottom,#337ab7 0,#2e6da4 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff337ab7', endColorstr='#ff2e6da4', GradientType=0);
+    background-repeat: repeat-x;
+}
+
+.panel-body {
+    padding: 15px;
+}
+
+    </style>
 
 </head>
 
@@ -24,7 +99,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
         <a class="navbar-brand" href="#">Start Bootstrap</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -54,19 +130,32 @@
     <!-- Jumbotron Header -->
     <header class="jumbotron my-4">
         <h1 class="display-3">A Warm Welcome!</h1>
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
+        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt
+            possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam
+            repellat.</p>
         <a href="#" class="btn btn-primary btn-lg">Call to action!</a>
     </header>
 
     <!-- Page Features -->
     <div class="row text-center">
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="#">Home</a></li>
+            <li role="presentation"><a href="#">Profile</a></li>
+            <li role="presentation"><a href="#">Messages</a></li>
+        </ul>
+        <div class="col-lg-12 col-md-12 mb-4">
+            <h2>topic title</h2>
+            <p>topic content</p>
+        </div>
+
 
         <div class="col-lg-3 col-md-6 mb-4">
             <div class="card">
                 <img class="card-img-top" src="http://placehold.it/500x325" alt="">
                 <div class="card-body">
                     <h4 class="card-title">Card title</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse
+                        necessitatibus neque.</p>
                 </div>
                 <div class="card-footer">
                     <a href="#" class="btn btn-primary">Find Out More!</a>
@@ -79,7 +168,8 @@
                 <img class="card-img-top" src="http://placehold.it/500x325" alt="">
                 <div class="card-body">
                     <h4 class="card-title">Card title</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni
+                        sapiente, tempore debitis beatae culpa natus architecto.</p>
                 </div>
                 <div class="card-footer">
                     <a href="#" class="btn btn-primary">Find Out More!</a>
@@ -92,7 +182,8 @@
                 <img class="card-img-top" src="http://placehold.it/500x325" alt="">
                 <div class="card-body">
                     <h4 class="card-title">Card title</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse
+                        necessitatibus neque.</p>
                 </div>
                 <div class="card-footer">
                     <a href="#" class="btn btn-primary">Find Out More!</a>
@@ -105,7 +196,8 @@
                 <img class="card-img-top" src="http://placehold.it/500x325" alt="">
                 <div class="card-body">
                     <h4 class="card-title">Card title</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni
+                        sapiente, tempore debitis beatae culpa natus architecto.</p>
                 </div>
                 <div class="card-footer">
                     <a href="#" class="btn btn-primary">Find Out More!</a>
@@ -114,6 +206,90 @@
         </div>
 
     </div>
+    <div class="col-lg-12 col-md-12 mb-4 panel panel-warning">
+        <div class="panel-heading">Panel heading without title</div>
+        <div class="panel-body">
+            Panel content
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Panel title</h3>
+        </div>
+        <div class="panel-body">
+            Panel content
+        </div>
+    </div>
+
+
+    <div class="media">
+        <div class="media-left media-middle">
+            <a href="#">
+                <img class="media-object" src="http://placehold.it/50x32" alt="...">
+            </a>
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">Middle aligned media</h4>
+            content
+            content
+            content
+            content
+            content
+            content
+        </div>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <span class="badge">14</span>
+            Cras justo odio
+        </li>
+    </ul>
+
+    <div class="bs-example" data-example-id="list-group-badges">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <span class="badge" style="background-color: #777;color: #fff;">14</span>
+                Cras justo odio
+            </li>
+            <li class="list-group-item">
+                <span class="badge">2</span>
+                Dapibus ac facilisis in
+            </li>
+            <li class="list-group-item">
+                <span class="badge">1</span>
+                Morbi leo risus
+            </li>
+        </ul>
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Panel title</h3>
+
+        </div>
+        <a href="#" class="panel-body">
+            Panel content
+        </a>
+        <div class="panel-footer">3 天前</div>
+    </div>
+    <div class="bs-example" data-example-id="list-group-badges">
+        <div class="list-group">
+            <a href="#" class="list-group-item">
+                <span class="badge">14</span>
+                Cras justo odio
+            </a>
+            <a href="#" class="list-group-item">
+                <span class="badge">2</span>
+                Dapibus ac facilisis in
+            </a>
+            <a href="#" class="list-group-item">
+                <span class="badge">1</span>
+                Morbi leo risus
+            </a>
+        </div>
+    </div>
+
     <!-- /.row -->
 
 </div>
