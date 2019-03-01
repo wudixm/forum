@@ -60,7 +60,7 @@ div {
 }
 
 .panel-heading {
-    padding: 10px 15px;
+    padding: 6px 15px;
     border-bottom: 1px solid transparent;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
@@ -88,6 +88,81 @@ div {
 .panel-body {
     padding: 15px;
 }
+
+
+
+
+
+    </style>
+    <style>
+
+
+.styles-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 10px;
+    border-bottom: 1px solid #e8e8e8;
+}
+* {
+    box-sizing: border-box;
+}
+.styles-posterInfo {
+    margin-top: 10px;
+    font-size: 13px;
+}
+.styles-posterInfo .styles-name {
+    font-weight: 700;
+    color: #999;
+    text-decoration: none;
+    transition: color .3s;
+}
+user agent stylesheet
+div {
+    display: block;
+}
+@media (min-width: 1100px)
+.styles-contentArea {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+}
+.styles-title {
+    font-size: 18px;
+    font-weight: 300;
+}
+* {
+    box-sizing: border-box;
+}
+user agent stylesheet
+div {
+    display: block;
+}
+body {
+    font-size: 14px;
+    line-height: 22px;
+    font-family: Lato,helvetica,arial,sans-serif;
+}
+html {
+    font-family: sans-serif;
+    line-height: 1.15;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+#test {
+    width: 0;
+    height: 0;
+    border-width: 20px;
+    border-style: solid;
+    border-color: transparent red red transparent;
+  }
+
+
 
     </style>
 
@@ -263,17 +338,17 @@ div {
         </ul>
     </div>
 
-    <div class="panel panel-primary">
+    <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title">Panel title</h3>
 
         </div>
-        <a href="#" class="panel-body">
-            Panel content
-        </a>
+        <div class="panel-body">
+            <a href="#">Panel content</a>
+        </div>
         <div class="panel-footer">3 天前</div>
     </div>
-    <div class="bs-example" data-example-id="list-group-badges">
+    <div id="topic_container" class="bs-example" data-example-id="list-group-badges">
         <div class="list-group">
             <a href="#" class="list-group-item">
                 <span class="badge">14</span>
@@ -291,6 +366,30 @@ div {
     </div>
 
     <!-- /.row -->
+    <div class="styles-container">
+        <div class="styles-title"><a
+                href="/general/discussion/let_s_see_if_this_bad_boy_supports_emoji____5bf26d536a9e5900043f2fb5">Let's
+            see if this bad-boy supports emoji 😊</a></div>
+        <div class="styles-posterInfo"><a class="styles-name" href="/user/oscaralexander">Alexander
+            Griffioen</a><a target="_blank" href="https://www.github.com/oscaralexander"
+                            class="styles-gitHandler"><!-- react-text: 97 -->- <!-- /react-text --><i
+                class="fa fa-github-alt styles-gitIcon"></i><!-- react-text: 99 --> <!-- /react-text -->
+            <!-- react-text: 100 -->oscaralexander<!-- /react-text --></a></div>
+        <div class="styles-boxFooter">
+            <div class="styles-tagsArea">
+                <div class="styles-tag"><!-- react-text: 104 -->utf8mb4<!-- /react-text --></div>
+                <div class="styles-tag"><!-- react-text: 106 -->emoji<!-- /react-text --></div>
+                <div class="styles-tag"><!-- react-text: 108 -->multibyte<!-- /react-text --></div>
+            </div>
+            <div class="styles-postInfo"><span class="styles-info">3 months ago</span><span
+                    class="styles-info"><!-- react-text: 112 -->0<!-- /react-text --><!-- react-text: 113 --> favorites
+                <!-- /react-text --></span><span class="styles-info"><!-- react-text: 115 -->11
+                <!-- /react-text --><!-- react-text: 116 --> opinions<!-- /react-text --></span></div>
+        </div>
+    </div>
+
+    <div id="test"></div>
+
 
 </div>
 <!-- /.container -->
@@ -306,6 +405,7 @@ div {
 <!-- Bootstrap core JavaScript -->
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="js/landing.js"></script>
 
 </body>
 
