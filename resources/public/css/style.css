@@ -1,1 +1,115 @@
 # Empty CSS file for your own CSS
+body,button, input, select, textarea,h1 ,h2, h3, h4, h5, h6 {
+    font-family: Microsoft YaHei,'宋体' , Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;
+}
+body{
+    font-size: 14px;
+
+    line-height: 22px;
+}
+
+
+.mm-container{
+    margin-top: 20px;
+    border: 1px solid #e8e8e8;
+}
+.mm-container:first-child{
+    margin-top: 0px;
+}
+.content-container{
+
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 10px 20px;
+    border-bottom: 1px solid #e8e8e8;
+}
+.content-width{
+    margin: 0 auto;
+    min-width: 320px;
+    max-width: 1100px;
+}
+.content-area{
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+
+}
+.tableContainer{
+    display: table;
+}
+.tableRow{
+    display: table-row;
+}
+.col-lg-10{
+    display: table-cell;
+    vertical-align: top;
+}
+.col-lg-2{
+    display: table-cell;
+    vertical-align: top;
+}
+.footer-info{
+margin-left: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: lowercase;
+    color: #999;
+}
+
+.post-info{
+    margin-left: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: lowercase;
+    color: #999;
+}
+.post-info:first-child{
+    margin-left: 0px;
+}
+
+.mm-title{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.mm-userinfo{
+    margin-top: 10px;
+    font-size: 13px;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mm-namearea{
+    display:flex;
+}
+.mm-namearea .name{
+    font-weight: 700;
+    color: #999;
+    text-decoration: none;
+    transition: color .3s;
+    display: inline-block;
+}
+.mm-footer{
+    margin-top: 10px;
+    font-size: 13px;
+    display: flex;
+}
+.mm-tag{
+    display: inline-block;
+}
+
+.fontsize-17{
+    font-size: 17px;
+}
+
+
+
+
+
