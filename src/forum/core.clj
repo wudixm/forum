@@ -40,9 +40,15 @@
     )
 
   )
+(defn all_post
+  "获取所有帖子，包括置顶的"
+  []
+
+  )
 
 (defroutes myapp
            (GET "/" [] "Hello World11111")
+           (GET "/all_post" req (all_post))
            (POST "/" req (mytest req))
            (POST "/register" req (register req))            ;登录注册先不需要，只能发帖，回复帖子
            (POST "/post/topic" req (create req))
