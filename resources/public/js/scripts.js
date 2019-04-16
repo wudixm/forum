@@ -12,8 +12,8 @@ $(function(){
   });
 
 });
-var app = angular.module('myApp', []);
-app.controller('myCtrl', function($scope, $http, $stateProvider) {
+var app = angular.module('app', ['ngRoute']);
+app.controller('myCtrl', function($scope, $http) {
   $http.get("/all_post")
     .then(function(response) {
       console.log(response);
@@ -35,13 +35,9 @@ app.controller('myCtrl', function($scope, $http, $stateProvider) {
   }
 });
 //设置angularJS路由
-app.config(function($routeProvider,$locationProvider){
+app.config(function($routeProvider){
   $routeProvider.when("/",{
-    templateUrl : "register.html",
-    controller : "syCtrl"
-  }).when("/login",{
-    templateUrl : "tpl/login.html",
-    controller : "loginCtrl"
+    templateUrl : "template/test.html",
+    controller : "template/test.js"
   });
-  $locationProvider.html5Mode(false).hashPrefix("!");
 });

@@ -1,0 +1,20 @@
+<div ng-repeat="x in topics">
+  <div class="card-body content-container">
+    <div class="mm-title">
+      {{x.desc}}
+    </div>
+    <div class="mm-userinfo">
+      <div class="mm-namearea">
+        <a class="name" href="#" ng-click="user_info(x.id)">{{x.username}}</a>
+      </div>
+      <div class="mm-tag">
+        <span class="post-info">{{x.created_at}}</span>
+        <span class="post-info">{{x.like_count}} 赞</span>
+        <span class="post-info">{{x.comment_count}} 评论</span>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+

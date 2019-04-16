@@ -12,11 +12,13 @@
 
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <script data-main="js/main" src="js/require.js"></script>
 
 
   </head>
   <body>
-    <div ng-app="myApp" ng-controller="myCtrl">
+    <!-- <div ng-app="app" ng-controller="home"> -->
+    <div >
 
       <div class="container-fluid">
         <div class="row content-width">
@@ -80,25 +82,27 @@
                     </div>
                   </div>
                 </div>
-                <div ng-repeat="x in topics">
-                <div class="card-body content-container">
-                  <div class="mm-title">
-                    {{x.desc}}
-                  </div>
-                  <div class="mm-userinfo">
-                    <div class="mm-namearea">
-                      <a class="name" href="#" ng-click="user_info(x.id)">{{x.username}}</a>
-                    </div>
-                    <div class="mm-tag">
-                        <span class="post-info">{{x.created_at}}</span>
-                        <span class="post-info">{{x.like_count}} 赞</span>
-                        <span class="post-info">{{x.comment_count}} 评论</span>
-
-                    </div>
-                  </div>
+                <div ng-view>
                 </div>
+                <!-- <div ng-repeat="x in topics"> -->
+                  <!-- <div class="card-body content-container"> -->
+                    <!-- <div class="mm-title"> -->
+                      <!-- {{x.desc}} -->
+                    <!-- </div> -->
+                    <!-- <div class="mm-userinfo"> -->
+                      <!-- <div class="mm-namearea"> -->
+                        <!-- <a class="name" href="#" ng-click="user_info(x.id)">{{x.username}}</a> -->
+                      <!-- </div> -->
+                      <!-- <div class="mm-tag"> -->
+                        <!-- <span class="post-info">{{x.created_at}}</span> -->
+                        <!-- <span class="post-info">{{x.like_count}} 赞</span> -->
+                        <!-- <span class="post-info">{{x.comment_count}} 评论</span> -->
 
-                </div>
+                      <!-- </div> -->
+                    <!-- </div> -->
+                  <!-- </div> -->
+
+                <!-- </div> -->
 
               </div>
               <div class="card bg-default mm-container">
@@ -167,7 +171,7 @@
                   </li>
                 </ul>
               </nav>
-
+              <div ng-view></div>
             </div>
           </div>
           <!--<div class="col-lg-1">-->
@@ -182,8 +186,9 @@
     </div>
 
   </body>
-  <script src="js/jquery.min.js"></script>
-  <script src="js/angular.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/scripts.js"></script>
+  <!-- <script src="js/jquery.min.js"></script> -->
+  <!-- <script src="js/angular.js"></script> -->
+  <!-- <script src="js/angular-route.js"></script> -->
+  <!-- <script src="js/bootstrap.min.js"></script> -->
+  <!-- <script src="js/scripts.js"></script> -->
 </html>
