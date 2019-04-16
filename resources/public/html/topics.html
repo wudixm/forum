@@ -1,11 +1,12 @@
 <div ng-repeat="x in topics">
   <div class="card-body content-container">
-    <div class="mm-title">
+    <div class="mm-title" ng-href="#!/topic/{{x.id}}">
       {{x.desc}}
     </div>
     <div class="mm-userinfo">
       <div class="mm-namearea">
-        <a class="name" href="#" ng-click="user_info(x.id)">{{x.username}}</a>
+        <a class="name" ng-href="#!/u/{{x.id}}">{{x.username}}</a>
+
       </div>
       <div class="mm-tag">
         <span class="post-info">{{x.created_at}}</span>

@@ -2,7 +2,7 @@ define(['app'], function (app) {
   // app.controller('HomeCtrl', function ($scope) {
   // $scope.message = "Message from HomeCtrl";
   // });
-  app.controller('testCtrl', function($scope, $http) {
+  app.controller('topicsCtrl', function($scope, $http) {
     $http.get("/all_post")
       .then(function(response) {
         console.log(response);
@@ -24,3 +24,4 @@ define(['app'], function (app) {
     }
   });
 });
+
