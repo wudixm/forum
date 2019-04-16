@@ -1,11 +1,22 @@
 (ns forum.topic.controller
-  (require [forum.common.util.req :refer [get_req_body]])
+  (require [forum.common.util.req :refer [get_req_body]]
+           [forum.topic.util.topic-util :refer [all_topic]]
+           )
   )
 
 
 (defn create_topic [user, topic_content, topic_name]
 
   )
+(defn all_topics [seq length]
+  (all_topic seq length)
+  )
+(defn delete_topic
+  "delete"
+  [topic_id]
+
+  )
+
 (defn parse_content_from_req [req]
 
   (println req)
@@ -18,3 +29,4 @@
     )
   (hash-map "name" "topic name" "content" "this is the topic content " "user_id" 123)
   )
+;(all_topics 1 1 )
