@@ -1,0 +1,77 @@
+<div class="container-content">
+  <div class="card bg-default mm-container">
+    <h5 class="card-header">
+      置顶
+    </h5>
+    <div ng-repeat="x in pinned">
+      <div class="card-body content-container">
+        <a class="mm-title" ng-href="#!/topic/{{x.id}}">
+          {{x.desc}}
+        </a>
+        <div class="mm-userinfo">
+          <div class="mm-namearea">
+            <a class="name" href="#" ng-click="user_info(x.id)">{{x.username}}</a>
+          </div>
+          <div class="mm-tag">
+            <span class="post-info">{{x.created_at}}</span>
+            <span class="post-info">{{x.like_count}} 赞</span>
+            <span class="post-info">{{x.comment_count}} 评论</span>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="card bg-default mm-container">
+    <h5 class="card-header">
+      最新
+    </h5>
+    <div ng-repeat="x in latest">
+      <div class="card-body content-container">
+        <a class="mm-title" ng-href="#!/topic/{{x.id}}">
+          {{x.desc}}
+        </a>
+        <div class="mm-userinfo">
+          <div class="mm-namearea">
+            <a class="name" ng-href="#!/topic/{{x.id}}">{{x.username}}</a>
+          </div>
+          <div class="mm-tag">
+            <span class="post-info">{{x.created_at}}</span>
+            <span class="post-info">{{x.like_count}} 赞</span>
+            <span class="post-info">{{x.comment_count}} 评论</span>
+
+          </div>
+        </div>
+        <div class="mm-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav class="fontsize-17">
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" href="#">Previous</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#">1</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#">2</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#">3</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#">4</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#">5</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#">Next</a>
+      </li>
+    </ul>
+  </nav>
+</div>

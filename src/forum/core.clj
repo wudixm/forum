@@ -69,15 +69,18 @@
   )
 (defn topic_info [req]
   (let [topic_id (get (:query-params req) "topic_id" 0)]
+    (println (str "topic_info called " topic_id))
     (println topic_id)
-    "success"
+    (def result (get_topic_by_id topic_id) )
+    (println result)
+    result
     )
   
   )
 (defroutes myapp
   (GET "/" [] "Hello World11111")
   (GET "/all_post" req (wrap-resp (all_post req)))
-  (GET "/topic" req (topic_info req))
+  (GET "/topic" req (wrap-resp (topic_info req)))
   (POST "/" req (mytest req))
   (POST "/register" req (register req))            ;登录注册先不需要，只能发帖，回复帖子
   (POST "/post/topic" req (create req))

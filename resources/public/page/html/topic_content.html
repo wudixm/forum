@@ -1,0 +1,19 @@
+<div ng-model="content">
+  <div class="card-body content-container">
+    <div class="mm-title">
+      {{content.desc}}
+    </div>
+    <div class="mm-userinfo">
+      <div class="mm-namearea">
+        <a class="name" href="#" ng-click="#!/u/{{ content.user_id }})">{{content.username}}</a>
+      </div>
+      <div class="mm-tag">
+        <span class="post-info">{{content.created_at}}</span>
+        <span class="post-info">{{content.like_count}} 赞</span>
+        <span class="post-info">{{content.comment_count}} 评论</span>
+
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -3,9 +3,14 @@ define(['angularAMD', 'angular-route'], function (angularAMD) {
   app.config(function ($routeProvider) {
     $routeProvider.
       when("/", angularAMD.route({
-      templateUrl: '/html/topics.html',
-      controller: 'topicsCtrl',
-      controllerUrl: '/js/topics.js'
+      templateUrl: '/page/html/all_topics.html',
+      controller: 'allTopicsCtrl',
+      controllerUrl: '/page/js/all_topics.js'
+    })).
+      when("/topic/:tid", angularAMD.route({
+      templateUrl: '/page/html/topic_content.html',
+      controller: 'topicContentCtrl',
+      controllerUrl: '/page/js/topic_content.js'
     })).
       when("/test", {template:"fdafdsafdsafdsaf"}).
       when("/u/:uid", angularAMD.route({
