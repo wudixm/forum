@@ -5,3 +5,4 @@ tags
 .lein*
 .nrepl*
 .*
+!/.gitignore
