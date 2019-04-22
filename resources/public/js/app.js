@@ -12,6 +12,11 @@ define(['angularAMD', 'angular-route'], function (angularAMD) {
       controller: 'topicContentCtrl',
       controllerUrl: '/page/js/topic_content.js'
     })).
+      when("/register", angularAMD.route({
+      templateUrl: '/page/html/register.html',
+      controller: 'registerCtrl',
+      controllerUrl: '/page/js/register.js'
+    })).
       when("/test", {template:"fdafdsafdsafdsaf"}).
       when("/u/:uid", angularAMD.route({
       templateUrl: '/html/u.html',

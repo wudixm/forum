@@ -1,85 +1,166 @@
 <!DOCTYPE html>
 <html lang="zh">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>MMZZ</title>
+    <title>MMZZ</title>
 
-        <meta name="description" content="Source code generated using layoutit.com">
-        <meta name="author" content="LayoutIt!">
+    <meta name="description" content="Source code generated using layoutit.com">
+    <meta name="author" content="LayoutIt!">
 
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/style.css" rel="stylesheet">
-        <script data-main="js/main" src="js/require.js"></script>
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <!--<script src="js/jquery.min.js"></script>-->
+    <!--<script src="js/bootstrap.min.js"></script>-->
+    <script data-main="js/main" src="js/require.js"></script>
 
 
-    </head>
-    <body>
-        <div >
-            <div class="container-fluid">
-                <div class="row content-width">
-                    <div class="col-lg-12">
-                        <div class="container-header">
-                            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+</head>
+<body>
+<div>
+    <div class="container-fluid">
+        <div class="row content-width">
+            <div class="col-lg-12">
+                <div class="container-header">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-                                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                                                             data-target="#bs-example-navbar-collapse-1">
-                                    <span class="navbar-toggler-icon"></span>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#bs-example-navbar-collapse-1">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Brand</a>
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <form class="form-inline">
+                                <input class="form-control mr-sm-2" type="text"/>
+                                <button class="btn btn-primary my-2 my-sm-0" type="submit">
+                                    Search
                                 </button>
-                                <a class="navbar-brand" href="#">Brand</a>
-                                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                                    <form class="form-inline">
-                                        <input class="form-control mr-sm-2" type="text"/>
-                                        <button class="btn btn-primary my-2 my-sm-0" type="submit">
-                                            Search
-                                        </button>
-                                    </form>
-                                    <ul class="navbar-nav ml-md-auto">
-                                        <li class="nav-item active">
-                                            <a class="nav-link" href="#">Link <span class="sr-only">(current)</span></a>
-                                        </li>
-                                        <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle" href="http://example.com"
-                                                                                id="navbarDropdownMenuLink"
-                                                                                data-toggle="dropdown">Dropdown link</a>
-                                            <div class="dropdown-menu dropdown-menu-right"
-                                                 aria-labelledby="navbarDropdownMenuLink">
-                                                <a id="register" class="dropdown-item" href="/register.html">注册</a> <a
-                                                                                       class="dropdown-item"
-                                                                                       href="#">Another
-                                                                                       action</a> <a class="dropdown-item" href="#">Something else here</a>
-                                                                                   <div class="dropdown-divider">
-                                                                                   </div>
-                                                                                   <a class="dropdown-item" href="#">Separated link</a>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </nav>
-                            <!-- <ul class="nav nav-tabs"> -->
-                            <!-- <li role="presentation" class="active"><a href="#">Home</a></li> -->
-                            <!-- <li role="presentation"><a href="#">Profile</a></li> -->
-                            <!-- <li role="presentation"><a href="#">Messages</a></li> -->
-                            <!-- </ul> -->
+                            </form>
+                            <ul class="navbar-nav ml-md-auto">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="#">Link <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="http://example.com"
+                                       id="navbarDropdownMenuLink"
+                                       data-toggle="dropdown">Dropdown link</a>
+                                    <div class="dropdown-menu dropdown-menu-right"
+                                         aria-labelledby="navbarDropdownMenuLink">
+                                        <a id="register" class="dropdown-item" href="#!register">注册</a> <a
+                                            class="dropdown-item"
+                                            href="#">Another
+                                        action</a> <a class="dropdown-item" href="#">Something else here</a>
+                                        <div class="dropdown-divider">
+                                        </div>
+                                        <a class="dropdown-item" href="#">Separated link</a>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
-                        <ul class="nav">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#!/">首页</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">最新</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link disabled" href="#">Messages</a>
-                            </li>
-                        </ul>
-                        <div ng-view></div>
-                    </div>
+                    </nav>
+                    <!-- <ul class="nav nav-tabs"> -->
+                    <!-- <li role="presentation" class="active"><a href="#">Home</a></li> -->
+                    <!-- <li role="presentation"><a href="#">Profile</a></li> -->
+                    <!-- <li role="presentation"><a href="#">Messages</a></li> -->
+                    <!-- </ul> -->
                 </div>
+                <!-- <ul class="nav nav-pills nav-fill"> -->
+                <!--<ul class="nav nav-pills nav-justify">-->
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link active" href="#">Active</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link" href="#">Much longer nav link</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link" href="#">Link</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>-->
+                <!--</li>-->
+                <!--</ul>-->
+
+                <!--<ul class="nav ">-->
+
+                    <!--<li role="presentation" class="nav-tabs active"><a href="#">Home</a></li>-->
+                    <!--<li role="presentation" class="nav-tabs active"><a href="#">Profile</a></li>-->
+                    <!--<li role="presentation" class="nav-tabs active"><a href="#">Messages</a></li>-->
+                <!--</ul>-->
+                <!--<ul class="nav justify-content-center nav-pills">-->
+                    <!--<li class="nav-item">-->
+                        <!--<a class="nav-link active" href="#">首页</a>-->
+                    <!--</li>-->
+                    <!--<li class="nav-item">-->
+                        <!--<a class="nav-link" href="#">敬请期待</a>-->
+                    <!--</li>-->
+                    <!--<li class="nav-item">-->
+                        <!--<a class="nav-link" href="#">敬请期待</a>-->
+                    <!--</li>-->
+                    <!--<li class="nav-item">-->
+                        <!--<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">敬请期待</a>-->
+                    <!--</li>-->
+                <!--</ul>-->
+                <ul class="nav nav-pills nav-fill">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">敬请期待</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">敬请期待</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">敬请期待</a>
+                    </li>
+                </ul>
+                <!--<ul class="nav nav-tabs">-->
+                    <!--<li class="nav-item">-->
+                        <!--<a class="nav-link active" href="#">Active</a>-->
+                    <!--</li>-->
+                    <!--<li class="nav-item">-->
+                        <!--<a class="nav-link" href="#">Link</a>-->
+                    <!--</li>-->
+                    <!--<li class="nav-item">-->
+                        <!--<a class="nav-link" href="#">Link</a>-->
+                    <!--</li>-->
+                    <!--<li class="nav-item">-->
+                        <!--<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>-->
+                    <!--</li>-->
+                <!--</ul>-->
+                <!--<ul class="nav">-->
+                    <!--<li class="nav-item active">-->
+                        <!--<a class="nav-link disabled" href="#!/">首页</a>-->
+                    <!--</li>-->
+                    <!--<li class="nav-item">-->
+                    <!--<a class="nav-link" href="#">最新</a>-->
+                    <!--</li>-->
+                    <!--<li class="nav-item">-->
+                    <!--<a class="nav-link disabled" href="#">Messages</a>-->
+                    <!--</li>-->
+                <!--</ul>-->
+                <!-- <div class="btn-group" role="group"> -->
+
+                <!-- <button class="btn btn-primary active" ng-click="#!/" type="button"> -->
+                <!-- Left -->
+                <!-- </button> -->
+                <!-- <button class="btn btn-primary" type="button"> -->
+                <!-- Center -->
+                <!-- </button> -->
+                <!-- <button class="btn btn-primary" type="button"> -->
+                <!-- Right -->
+                <!-- </button> -->
+                <!-- <button class="btn btn-primary" type="button"> -->
+                <!-- Justify -->
+                <!-- </button> -->
+                <!-- </div> -->
+                <div ng-view></div>
             </div>
         </div>
+    </div>
+</div>
 
-    </body>
+</body>
 </html>
