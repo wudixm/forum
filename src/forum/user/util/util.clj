@@ -1,16 +1,9 @@
 (ns forum.user.util.util
   (:require [clojure.java.jdbc :as jdbc]
             [clojure.data.json :as json]
+            [forum.common.util.db :refer :all]
             ))
 
-(def db-spec
-  {:classname   "com.mysql.jdbc.Driver"
-   :subprotocol "mysql"
-   :subname           "//127.0.0.1:13308/forum"
-   :user        "dev"
-   :password    "devdevdev"
-   :useSSL false
-   })
 
 (defn user_info [_id]
 
@@ -18,4 +11,11 @@
     (first stmt)
     )
   )
+(defn register_user [email pass]
+
+  (let [stmt (jdbc/execute! db-spec ["insert into user_obs (email, password) values (?, ?) ;" email pass] )]
+    )
+
+  )
 ; (user_info 1)
+; (register_user "wxmswy" 123)

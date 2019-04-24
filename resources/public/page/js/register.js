@@ -22,6 +22,9 @@ define(['app'], function (app) {
         alert("请先同意协定");
         return;
       }
+      var email = $scope.email;
+
+      register(email, pass1);
     };
     $scope.selected = function(){
       if ($scope.boxchecked){
@@ -29,6 +32,22 @@ define(['app'], function (app) {
       } else{
         $scope.boxchecked = true;
       }
-    }
+    };
+    register = function(email, pass){
+      data= $.param({"email":email, "password":pass});
+      // data = $.param({"id":"1","name":"jyy"})
+      $http({
+        method:"post",
+        url:"/register",
+        data:data,
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+      }).then(function(response) {
+        console.log(response);
+      });
+      // $http.post("/register", data)
+      // .then(function(response) {
+        // console.log(response);
+      // });
+    };
   });
 });

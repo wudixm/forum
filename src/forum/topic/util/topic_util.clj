@@ -99,4 +99,4 @@
     )
   )
 ; (all_topic 0 1)
-(get_topic_by_id 24)
+;(get_topic_by_id 24)
