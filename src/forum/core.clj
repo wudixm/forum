@@ -112,7 +112,7 @@
 
 (defn -main []
   (println "start server at port 8081")
-  (run-server (wrap-params (wrap-session myapp)) {:port 8081})
+  (run-server (wrap-params (wrap-session myapp {:cookie-attrs {:max-age 3600}}) ) {:port 8081})
   )
 
 (defn stop [server]
