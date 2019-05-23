@@ -44,17 +44,7 @@ define(['app'], function (app) {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
       }).then(function(response) {
         console.log(response);
-        data= $.param({"key_name":"username"});
-        $http({
-          method:"get",
-          url:"/session_info",
-          data:data
-        }).then(function(response) {
-          console.log(response);
-          $rootScope.uname = response.data;
-          console.log($scope.link_id);
-          $location.path( "/" );
-        });
+        $location.path( "/" );
       });
 
     };

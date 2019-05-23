@@ -91,6 +91,8 @@
     )
   )
 (defn session_info [req]
+  (println "in method session_info")
+  (println req)
   (let [key_name (get (:query-params req) "key_name" "username")
         session (:session req)]
     (println session)
@@ -107,25 +109,47 @@
     (println result)
     result
     )
-
   )
+(defn login [req]
+  (println "in method login")
+  (println req)
+  (let [email (get (:query-params req) "email" 0)
+        pass (get (:query-params req) "password" 0)
+        result (login_user email pass)
+        ]
+    (println (str "email " email))
+    (println (str "pass " pass))
+    (if (nil? result)
+      (let [resp (response "not found the user")]
+        resp
+        )
+      (let [resp (assoc (response "find the user") :session (hash-map "username" (get result :email)))]
+        resp
+        )
+      )
+    ; (let [resp (assoc (response "注册成功!") :session (hash-map "username" email))]
+      ; (println resp)
+      ; resp
+      ; )
+    ))
 (defroutes myapp
-           (GET "/" [] "Hello World11111")
-           (GET "/mytest" req (mytest req))
-           (GET "/all_post" req (wrap-resp (all_post req) req))
-           (GET "/topic" req (wrap-resp (topic_info req) req))
-           (GET "/session_info" req (wrap-resp (session_info req) req))
-           (POST "/" req (mytest req))
-           (POST "/register" req (register req))            ;登录注册先不需要，只能发帖，回复帖子
-           (POST "/post/topic" req (create req))
-           (route/resources "/")
-           )
+  (GET "/" [] "Hello World11111")
+  (GET "/mytest" req (mytest req))
+  (GET "/all_post" req (wrap-resp (all_post req) req))
+  (GET "/topic" req (wrap-resp (topic_info req) req))
+  (GET "/session_info" req (wrap-resp (session_info req) req))
+  (POST "/" req (mytest req))
+  (POST "/register" req (register req))
+  (GET "/login" req (login req))
+  (POST "/post/topic" req (create req))
+  (route/resources "/")
+  )
 
 
 
 (defn -main []
   (println "start server at port 8081")
-  (run-server (wrap-params (wrap-cookies (wrap-session myapp {:cookie-attrs {:max-age 60}}))) {:port 8081})
+  (run-server (wrap-params (wrap-cookies (wrap-session myapp {:cookie-attrs {:max-age 3600}}))) {:port 8081})
   )
 
 (defn stop [server]

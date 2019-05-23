@@ -17,5 +17,17 @@
     )
 
   )
+
+(defn login_user [email pass]
+
+  (let [stmt (jdbc/query db-spec ["select email, password from user_obs where email = ? and password = ? ;" email pass] )
+        fs (first stmt)
+        ]
+    (println (get fs :email))
+    fs
+    )
+
+  )
 ; (user_info 1)
 ; (register_user "wxmswy" 123)
+; (login_user "wxm66668888@163.com" 1)

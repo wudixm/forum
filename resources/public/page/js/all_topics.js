@@ -3,11 +3,24 @@ define(['app'], function (app) {
   // $scope.message = "Message from HomeCtrl";
   // });
   app.controller('allTopicsCtrl', function($scope, $http, $rootScope) {
-    console.log("$rootScope.uname");
+    console.log("$rootScope.uname in all topics");
     console.log($rootScope.uname);
-    if ($rootScope.uname === '' ||$rootScope.uname === undefined ) {
-      $rootScope.uname = "";
-    }
+    data= $.param({"key_name":"username"});
+    // $http({
+      // method:"get",
+      // url:"/session_info",
+      // data:data
+    // }).then(function(response) {
+      // console.log(response);
+      // $rootScope.uname = response.data;
+      // console.log($scope.link_id);
+    // });
+    $http.get("/session_info?key_name=username").then(
+      function(response){
+        console.log(response);
+        $rootScope.uname = response.data;
+      }
+    );
     $http.get("/all_post")
       .then(function(response) {
         console.log(response);
@@ -34,8 +47,6 @@ define(['app'], function (app) {
     $scope.user_info = function(uid) {
       console.log(uid);
     }
-    console.log("$scope.link_id");
-    console.log($scope.link_id);
   });
 });
 
