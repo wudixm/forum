@@ -27,15 +27,15 @@
    :body    "Hello World"})
 
 (defn register [req]
-  (println req)
-  (println)
-  (println)
   (let [email (get (:form-params req) "email" 0)
         pass (get (:form-params req) "password" 0)
         ]
     (register_user email pass)
+    (let [resp (assoc (response "注册成功!") :session (hash-map "username" email))]
+      (println resp)
+      resp
+      )
     )
-  "success"
   ; (username_password_parse req)
   )
 (defn mytest [req]
@@ -45,7 +45,7 @@
     (println "old -session")
     (println old-session)
     ;(assoc (response "you are not login ") :session "testsession" :cookies (hash-map "session_id" (hash-map "value" "sessionid")))
-    (assoc (response "you are not login ") :session (str "testsession" ) )
+    (assoc (response "you are not login ") :session (str "testsession"))
     ;(-> (response "You are now logged in")
     ;    (assoc :session new-session))
     )
@@ -81,10 +81,22 @@
     ;    ))
     )
   )
-(defn wrap-resp [resp]
-  (let [new_resp (hash-map :body resp :status 200 :headers {"Content-Type" "text/text"})]
+(defn wrap-resp [resp req]
+  (let [session (:session req)
+        new_resp (hash-map :body resp :status 200 :headers {"Content-Type" "text/text"} :session session)
+        ]
+    (println "in method wrap-resp")
     (println new_resp)
     new_resp
+    )
+  )
+(defn session_info [req]
+  (let [key_name (get (:query-params req) "key_name" "username")
+        session (:session req)]
+    (println session)
+    (println key_name)
+    (println (get session key_name))
+    (get session key_name)
     )
   )
 (defn topic_info [req]
@@ -100,8 +112,9 @@
 (defroutes myapp
            (GET "/" [] "Hello World11111")
            (GET "/mytest" req (mytest req))
-           (GET "/all_post" req (wrap-resp (all_post req)))
-           (GET "/topic" req (wrap-resp (topic_info req)))
+           (GET "/all_post" req (wrap-resp (all_post req) req))
+           (GET "/topic" req (wrap-resp (topic_info req) req))
+           (GET "/session_info" req (wrap-resp (session_info req) req))
            (POST "/" req (mytest req))
            (POST "/register" req (register req))            ;登录注册先不需要，只能发帖，回复帖子
            (POST "/post/topic" req (create req))
@@ -112,7 +125,7 @@
 
 (defn -main []
   (println "start server at port 8081")
-  (run-server (wrap-params (wrap-session myapp {:cookie-attrs {:max-age 3600}}) ) {:port 8081})
+  (run-server (wrap-params (wrap-cookies (wrap-session myapp {:cookie-attrs {:max-age 60}}))) {:port 8081})
   )
 
 (defn stop [server]

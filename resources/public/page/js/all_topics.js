@@ -2,7 +2,12 @@ define(['app'], function (app) {
   // app.controller('HomeCtrl', function ($scope) {
   // $scope.message = "Message from HomeCtrl";
   // });
-  app.controller('allTopicsCtrl', function($scope, $http) {
+  app.controller('allTopicsCtrl', function($scope, $http, $rootScope) {
+    console.log("$rootScope.uname");
+    console.log($rootScope.uname);
+    if ($rootScope.uname === '' ||$rootScope.uname === undefined ) {
+      $rootScope.uname = "";
+    }
     $http.get("/all_post")
       .then(function(response) {
         console.log(response);
@@ -29,6 +34,8 @@ define(['app'], function (app) {
     $scope.user_info = function(uid) {
       console.log(uid);
     }
+    console.log("$scope.link_id");
+    console.log($scope.link_id);
   });
 });
 

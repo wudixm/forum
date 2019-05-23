@@ -2,7 +2,7 @@ define(['app'], function (app) {
   // app.controller('HomeCtrl', function ($scope) {
   // $scope.message = "Message from HomeCtrl";
   // });
-  app.controller('registerCtrl', function($scope, $http) {
+  app.controller('registerCtrl', function($scope, $http, $rootScope, $location) {
     console.log("in register Ctrl");
     console.log($scope.email);
     $scope.boxchecked = false;
@@ -23,8 +23,9 @@ define(['app'], function (app) {
         return;
       }
       var email = $scope.email;
+      console.log($scope.link_id);
 
-      register(email, pass1);
+      register($rootScope, $scope, $location, email, pass1);
     };
     $scope.selected = function(){
       if ($scope.boxchecked){
@@ -33,7 +34,7 @@ define(['app'], function (app) {
         $scope.boxchecked = true;
       }
     };
-    register = function(email, pass){
+    register = function($rootScope, $scope, $location, email, pass){
       data= $.param({"email":email, "password":pass});
       // data = $.param({"id":"1","name":"jyy"})
       $http({
@@ -43,11 +44,19 @@ define(['app'], function (app) {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
       }).then(function(response) {
         console.log(response);
+        data= $.param({"key_name":"username"});
+        $http({
+          method:"get",
+          url:"/session_info",
+          data:data
+        }).then(function(response) {
+          console.log(response);
+          $rootScope.uname = response.data;
+          console.log($scope.link_id);
+          $location.path( "/" );
+        });
       });
-      // $http.post("/register", data)
-      // .then(function(response) {
-        // console.log(response);
-      // });
+
     };
   });
 });
