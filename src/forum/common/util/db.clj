@@ -10,7 +10,7 @@
    ; :subname           "//172.17.0.1:3306/forum"
    :subname           "//172.26.158.219:3306/forum"
    :user        "dev"
-   :password    "devdev"
-   ; :password    "devdevdev"
+   ; :password    "devdev"
+   :password    "devdevdev"
    :useSSL false
    })
