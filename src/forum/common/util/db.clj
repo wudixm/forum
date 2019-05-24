@@ -9,6 +9,7 @@
    ; :subname           "//127.0.0.1:13308/forum"
    :subname           "//127.0.0.1:3306/forum"
    :user        "dev"
-   :password    "devdevdev"
+   :password    "devdev"
+   ; :password    "devdevdev"
    :useSSL false
    })
