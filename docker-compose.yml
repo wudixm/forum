@@ -1,4 +1,4 @@
-forum:
+web:
   build: .
   command: lein run
   ports:
