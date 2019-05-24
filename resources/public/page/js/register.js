@@ -43,6 +43,7 @@ define(['app'], function (app) {
         data:data,
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
       }).then(function(response) {
+        $rootScope.register_show = false;
         console.log(response);
         $location.path( "/" );
       });

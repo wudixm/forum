@@ -15,14 +15,6 @@ define(['app'], function (app) {
           $location.path( "/" );
         }
       );
-      // $http({
-      // method:"get",
-      // url:"/login",
-      // data:data
-      // }).then(function(response) {
-      // console.log(response);
-      // $location.path( "/" );
-      // });
 
     };
   });

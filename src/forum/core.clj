@@ -127,11 +127,16 @@
         resp
         )
       )
-    ; (let [resp (assoc (response "注册成功!") :session (hash-map "username" email))]
-      ; (println resp)
-      ; resp
-      ; )
     ))
+(defn logout [req]
+  (println "in method logout ")
+  (println req)
+  (let [resp (assoc (response "log out success") :session nil)]
+    (println "resp is ")
+    (println resp)
+    resp
+    )
+  )
 (defroutes myapp
   (GET "/" [] "Hello World11111")
   (GET "/mytest" req (mytest req))
@@ -141,6 +146,7 @@
   (POST "/" req (mytest req))
   (POST "/register" req (register req))
   (GET "/login" req (login req))
+  (GET "/logout" req (logout req))
   (POST "/post/topic" req (create req))
   (route/resources "/")
   )

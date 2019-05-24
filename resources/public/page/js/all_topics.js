@@ -6,21 +6,24 @@ define(['app'], function (app) {
     console.log("$rootScope.uname in all topics");
     console.log($rootScope.uname);
     data= $.param({"key_name":"username"});
-    // $http({
-      // method:"get",
-      // url:"/session_info",
-      // data:data
-    // }).then(function(response) {
-      // console.log(response);
-      // $rootScope.uname = response.data;
-      // console.log($scope.link_id);
-    // });
-    $http.get("/session_info?key_name=username").then(
-      function(response){
-        console.log(response);
-        $rootScope.uname = response.data;
-      }
-    );
+    if ($rootScope.uname === '' || $rootScope.uname === undefined){
+      $http.get("/session_info?key_name=username").then(
+        function(response){
+          console.log(response);
+          $rootScope.uname = response.data;
+          if ($rootScope.uname === '' || $rootScope.uname === undefined){
+            $rootScope.register_show = true;
+            $rootScope.login_show = true;
+            $rootScope.logout_show = false;
+          } else{
+            $rootScope.register_show = false;
+            $rootScope.login_show = false;
+            $rootScope.logout_show = true;
+          }
+        }
+      );
+    }
+
     $http.get("/all_post")
       .then(function(response) {
         console.log(response);
