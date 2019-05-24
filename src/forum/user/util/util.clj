@@ -29,17 +29,17 @@
 
   )
 
-; (defn test_spec [db-s sqlstr ]
+(defn test_spec [db-s sqlstr ]
 
-  ; (let [stmt (jdbc/query db-s [sqlstr ] )
-        ; fs (first stmt)
-        ; ]
-    ; (println fs)
-    ; (println (type fs))
-    ; fs
-    ; )
+  (let [stmt (jdbc/query db-s [sqlstr ] )
+        fs (first stmt)
+        ]
+    (println fs)
+    (println (type fs))
+    fs
+    )
 
-  ; )
+  )
 ; (user_info 1)
 ; (register_user "wxmswy" 123)
 ; (login_user "wxm66668888@163.com" 1)
