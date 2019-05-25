@@ -1,7 +1,7 @@
 require.config({
   paths : {
     "jquery" : ["jquery.min"],
-    "angular": ["angular"],
+    "angular": ["angular.min"],
     "angular-route": ["angular-route"],
     "angularAMD": ["angularAMD.min"],
 //    "popper": ["popper.min"],
