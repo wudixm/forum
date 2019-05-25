@@ -1,23 +1,24 @@
 (ns forum.topic.util.topic-util
   (:require [clojure.java.jdbc :as jdbc]
             [clojure.data.json :as json]
+            [forum.common.util.db :refer :all]
             [forum.user.util.util :refer [user_info]]
             ))
 
-(def db-spec
-  {:classname   "com.mysql.jdbc.Driver"
-   :subprotocol "mysql"
-   ;:subname     "//127.0.0.1:3306/mm"
-   ;:subname           "//172.26.158.219:3306/mm"
-   ;:subname           "//172.17.0.1:3306/mm"
-   :subname     "//127.0.0.1:13308/forum"
-   ;:subname           "//localhost:3306/mm"
-   :user        "dev"
-   :password    "devdevdev"
-   ;:user        "root"
-   ;:password    "rootroot"
-   :useSSL      false
-   })
+;(def db-spec
+;  {:classname   "com.mysql.jdbc.Driver"
+;   :subprotocol "mysql"
+;   ;:subname     "//127.0.0.1:3306/mm"
+;   ;:subname           "//172.26.158.219:3306/mm"
+;   ;:subname           "//172.17.0.1:3306/mm"
+;   :subname     "//127.0.0.1:13308/forum"
+;   ;:subname           "//localhost:3306/mm"
+;   :user        "dev"
+;   :password    "devdevdev"
+;   ;:user        "root"
+;   ;:password    "rootroot"
+;   :useSSL      false
+;   })
 (defn fill_one_topic [topic]
   (hash-map "name" (:name topic)
                     "desc" (:description topic)
