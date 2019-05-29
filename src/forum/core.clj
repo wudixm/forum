@@ -137,6 +137,15 @@
     resp
     )
   )
+(defn new_topic [req]
+  (let [title (get (:form-params req) "title" "")
+        content (get (:form-params req) "content" "")
+        ]
+    (println title)
+    (println content)
+    (response "create topic success~") 
+    )
+  )
 (defroutes myapp
   (GET "/" [] "Hello World11111")
   (GET "/mytest" req (mytest req))
@@ -145,6 +154,7 @@
   (GET "/session_info" req (wrap-resp (session_info req) req))
   (POST "/" req (mytest req))
   (POST "/register" req (register req))
+  (POST "/new_topic" req (new_topic req))
   (GET "/login" req (login req))
   (GET "/logout" req (logout req))
   (POST "/post/topic" req (create req))

@@ -5,20 +5,6 @@
             [forum.user.util.util :refer [user_info]]
             ))
 
-;(def db-spec
-;  {:classname   "com.mysql.jdbc.Driver"
-;   :subprotocol "mysql"
-;   ;:subname     "//127.0.0.1:3306/mm"
-;   ;:subname           "//172.26.158.219:3306/mm"
-;   ;:subname           "//172.17.0.1:3306/mm"
-;   :subname     "//127.0.0.1:13308/forum"
-;   ;:subname           "//localhost:3306/mm"
-;   :user        "dev"
-;   :password    "devdevdev"
-;   ;:user        "root"
-;   ;:password    "rootroot"
-;   :useSSL      false
-;   })
 (defn fill_one_topic [topic]
   (hash-map "name" (:name topic)
                     "desc" (:description topic)
@@ -50,10 +36,6 @@
                                    (println (str "created_at = " (java.util.Date. (.getTime (:created_at topic)))))
                                    (println (str "当前时间是" (System/currentTimeMillis) " date=" (java.util.Date.)))
                                    (println diff)
-                                   ; (println (type minutes))
-                                   ; (println minutes)
-                                   ; (println (str (float minutes)  " 分钟前"))
-                                   ; (println times)
                                    diff_str
                                    )
                     )
@@ -64,12 +46,6 @@
     (hash-map )
     (map fill_one_topic topic_seqs)
     )
-  ;(let [f (first topic_seqs)]
-  ;  (println (:created_at f))
-  ;  (println (type (:created_at f)))
-  ;  (println (.getTime (:created_at f)))
-  ;  (println (System/currentTimeMillis ))
-  ;  )
 
   )
 
@@ -98,6 +74,9 @@
         ]
     (json/write-str topics)
     )
+  )
+(defn create_topic [title content user_id]
+  
   )
 ; (all_topic 0 1)
 ;(get_topic_by_id 24)

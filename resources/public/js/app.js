@@ -17,6 +17,11 @@ define(['angularAMD', 'angular-route'], function (angularAMD) {
         controller: 'registerCtrl',
         controllerUrl: '/page/js/register.js'
       })).
+      when("/new_topic", angularAMD.route({
+        templateUrl: '/page/html/new_topic.html',
+        controller: 'newTopicCtrl',
+        controllerUrl: '/page/js/new_topic.js'
+      })).
       when("/login", angularAMD.route({
         templateUrl: '/page/html/login.html',
         controller: 'loginCtrl',

@@ -14,6 +14,7 @@
 (defn register_user [email pass]
 
   (let [stmt (jdbc/execute! db-spec ["insert into user_obs (email, password) values (?, ?) ;" email pass] )]
+    (first stmt)
     )
 
   )

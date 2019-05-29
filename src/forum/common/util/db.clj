@@ -10,7 +10,7 @@
    :subname           "//127.0.0.1:13308/forum"
    ; :subname           "//172.17.0.1:3306/forum"
    :user        "dev"
-   :password    "devdev"
+   :password    "devdevdev"
    :useSSL false
    })
 (def remote_ali

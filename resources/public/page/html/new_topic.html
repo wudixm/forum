@@ -1,0 +1,23 @@
+<form role="form">
+  <!-- <div class="form-group"> -->
+
+  <!-- <label for="email"> -->
+  <!-- 主题 -->
+  <!-- </label> -->
+  <!-- [> <input type="text" class="form-control" id="email" ng-model="email"/> <] -->
+  <!-- <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea> -->
+
+  <!-- </div> -->
+  <div class="form-group">
+    <label for="topic_title">主题</label>
+    <input type="text" class="form-control" id="topic_title" ng-model="topic_title" placeholder="新的主题...">
+  </div>
+  <div class="form-group">
+    <label for="topic_content">内容</label>
+    <textarea class="form-control" id="topic_content" ng-model="topic_content" rows="3"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary" ng-click="submit()">
+    提交
+  </button>
+</form>
+
