@@ -5,9 +5,6 @@
   )
 
 
-(defn create_topic [user, topic_content, topic_name]
-
-  )
 (defn all_topics [seq length]
   (all_topic seq length)
   )
