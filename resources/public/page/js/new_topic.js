@@ -22,7 +22,7 @@ define(['app'], function (app) {
       }).then(function(response) {
         $rootScope.register_show = false;
         console.log(response);
-        // $location.path( "/" );
+        $location.path( "/" );
       });
 
     };

@@ -21,7 +21,7 @@
 
 (defn login_user [email pass]
 
-  (let [stmt (jdbc/query db-spec ["select email, password from user_obs where email = ? and password = ? ;" email pass] )
+  (let [stmt (jdbc/query db-spec ["select id, email, password from user_obs where email = ? and password = ? ;" email pass] )
         fs (first stmt)
         ]
     (println (get fs :email))

@@ -123,7 +123,9 @@
       (let [resp (response "not found the user")]
         resp
         )
-      (let [resp (assoc (response "find the user") :session (hash-map "username" (get result :email)))]
+      (let [resp (assoc (response "find the user") :session (hash-map "username" (get result :email) "user_id" (get result :id)))]
+        (println result)
+        (println (get result :id))
         resp
         )
       )
@@ -140,10 +142,16 @@
 (defn new_topic [req]
   (let [title (get (:form-params req) "title" "")
         content (get (:form-params req) "content" "")
+        session (:session req)
+        user_id (get session "user_id")
         ]
     (println title)
     (println content)
+    (println session)
+    (println user_id)
+    (println ())
     (response "create topic success~") 
+    (create_topic title content user_id)
     )
   )
 (defroutes myapp
@@ -171,3 +179,4 @@
 (defn stop [server]
   (server :timeout 10)
   )
+(login_user "fdsafdsaf@aaa.com" 1 )
