@@ -1,17 +1,17 @@
 (ns forum.common.util.db
   (:require [clojure.java.jdbc :as jdbc]
             [clojure.data.json :as json]
-            )
+            [taoensso.carmine :as car :refer (wcar)])
   (:import (java.net InetAddress)))
 
 (def local_mac
   {:classname   "com.mysql.jdbc.Driver"
    :subprotocol "mysql"
-   :subname           "//127.0.0.1:13308/forum"
+   :subname     "//127.0.0.1:13308/forum"
    ; :subname           "//172.17.0.1:3306/forum"
    :user        "dev"
    :password    "devdevdev"
-   :useSSL false
+   :useSSL      false
    })
 (def remote_ali
   {:classname   "com.mysql.jdbc.Driver"
@@ -20,13 +20,13 @@
    ; :subname           "//172.17.0.1:3306/forum"
    :user        "dev"
    ; :password    "devdev"
-   :subname           "//172.26.158.219:3306/forum"
+   :subname     "//172.26.158.219:3306/forum"
    :password    "devdevdev"
-   :useSSL false
+   :useSSL      false
    })
 (defn is_local_mac []
   (let [host_str (.toString (InetAddress/getLocalHost))]
-    (println host_str)
+    (println host_str)                                      ; hoytMacBook-Pro.local/192.168.202.210
     (println "host_str")
     (if (> (.indexOf host_str "hoytMacBook") -1)
 
@@ -41,4 +41,16 @@
     remote_ali
     )
   )
-(println db-spec)
+
+
+; (def redis-spec
+  ; (if (is_local_mac)
+    ; ; 定义两种server-conn 给不同环境redis 用
+    ; )
+  ; )
+(def server1-conn {:pool {} :spec {:uri "redis://127.0.0.1:6379/1"}})
+(defmacro wcar* [& body] `(car/wcar server1-conn ~@body))
+;(println db-spec)
+;(println server1-conn)
+; (wcar* (car/set "test" 2))
+;(wcar* (car/get "test"))

@@ -13,6 +13,7 @@
                  [ring/ring-defaults "0.3.2"]
                  [ring/ring-core "1.6.3"]
                  [org.clojure/data.json "0.2.6"]
+                 [com.taoensso/carmine "2.19.1"]
                  ]
   :main forum.core
   )

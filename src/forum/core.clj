@@ -12,6 +12,7 @@
     [ring.util.response :refer [response]]
     [ring.middleware.session :refer :all]
     [ring.middleware.cookies :refer :all]
+    [taoensso.carmine :as car :refer (wcar)]
 
     )
   )
@@ -154,11 +155,20 @@
     (create_topic title content user_id)
     )
   )
+(defn rand-str [req]
+  (let [ran (rand-int 10)]
+    (if (> ran 5)
+      (str "success " ran)
+      (str "successnot_ " ran)
+      )
+    )
+  )
 (defroutes myapp
   (GET "/" [] "Hello World11111")
   (GET "/mytest" req (mytest req))
   (GET "/all_post" req (wrap-resp (all_post req) req))
   (GET "/topic" req (wrap-resp (topic_info req) req))
+  (GET "/metrics" req (response (rand-str req)))
   (GET "/session_info" req (wrap-resp (session_info req) req))
   (POST "/" req (mytest req))
   (POST "/register" req (register req))
