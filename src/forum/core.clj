@@ -7,7 +7,6 @@
     [forum.user.login :refer :all]
     [forum.user.util.util :refer :all]
     [forum.topic.controller :refer :all]
-    [forum.topic.util.topic-util :refer :all]
     [ring.middleware.params :refer :all]
     [ring.util.response :refer [response]]
     [ring.middleware.session :refer :all]
@@ -74,7 +73,7 @@
     (println (str "seq =" seqs))
     (println (str "length =" length))
     (println (str "kind = " kind))
-    (all_topic seqs length)
+    (all_topics seqs length)
     ;(if (= kind "all")
     ;  (all_topic seqs length)
     ;  (if (= kind "pinned")
