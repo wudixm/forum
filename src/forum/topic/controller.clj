@@ -1,6 +1,6 @@
 (ns forum.topic.controller
   (require [forum.common.util.req :refer [get_req_body]]
-           [forum.topic.util.topic-util :as dao :refer [all_topic get_topic_by_id]]
+           [forum.topic.util.topic-util :as dao]
            ))
 
 (defn get_topic_by_id [_id]
