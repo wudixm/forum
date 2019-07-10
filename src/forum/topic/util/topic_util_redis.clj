@@ -6,6 +6,7 @@
             [clojure.data.json :as json]
 
             ))
+(def score_per_like 432)
 
 (defn fill_topic [topic_obj]
 
@@ -37,8 +38,22 @@
     topic_obj
     )
   )
+(defn like_topic
+  "点赞话题"
+  [user_id topic_id]
+  (let [topic_id_str (str "topic:" topic_id)]
+
+    (wcar* (car/hincrby topic_id_str "like_count" 1))
+
+    (wcar* (car/zincrby "score:" topic_id_str score_per_like))
+
+    (wcar* (car/sadd (str "liked:" topic_id) user_id))
+    )
+  )
+
 
 (defn inc_topic_id []
+  "自增话题id"
   (wcar* (car/incr "topic:"))
   )
 
@@ -52,7 +67,6 @@
         topic_id (inc_topic_id)
         topic_id_str (str "topic:" topic_id)
         expire_time 3600
-        vote_score_per_day 432
         ]
     (println (json/write-str topic))
     (println topic_id)
@@ -62,13 +76,16 @@
 
     ; hash 存值
     (assoc topic "timestamp" timestamp)
+    (println topic)
     (wcar* (car/hmset* topic_id_str topic))
 
+    (println topic_id_str)
     ; 积分表，可以按照积分查询
-    (wcar* (car/zadd "score:" topic_id_str (+ timestamp vote_score_per_day)))
+    (wcar* (car/zadd "score:" (+ timestamp score_per_like) topic_id_str))
 
+    (println timestamp)
     ; 时间表，可以按照时间查
-    (wcar* (car/zadd "time:" topic_id_str timestamp))
+    (wcar* (car/zadd "time:" timestamp topic_id_str))
     )
   )
 
