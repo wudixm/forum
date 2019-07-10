@@ -17,6 +17,7 @@
   ;          "like_count" (:like_count topic)
   ;          "comment_count" (:comment_count topic)
   ;"created_at" (let [diff (- (System/currentTimeMillis) (.getTime (:created_at topic)))
+  (hash-map "name")
   )
 (defn all_topic [seqs length]
   )
@@ -28,7 +29,7 @@
                               (if (map? x)
                                 [x y]
                                 (assoc (first x) (last x) y)
-                                ))) topic )
+                                ))) topic)
         ]
     (println topic)
     (println topic_obj)
@@ -36,21 +37,38 @@
     topic_obj
     )
   )
+
 (defn inc_topic_id []
   (wcar* (car/incr "topic:"))
   )
+
 (defn create_topic [title content user_id]
-  ;(let [stmt (jdbc/execute! db-spec ["insert into topic_info (name, description, user_id) values (?, ?, ?) ;" title content user_id] )
-  ;      ])
-  ;"success"
-  (let [topic (hash-map "name" title "description" content "user_id" user_id)
+  (let [topic (hash-map "name" title
+                        "description" content
+                        "user_id" user_id
+                        "like_count" 0
+                        "comment_count" 0)
+        timestamp (quot (System/currentTimeMillis) 1000)
         topic_id (inc_topic_id)
+        topic_id_str (str "topic:" topic_id)
+        expire_time 3600
+        vote_score_per_day 432
         ]
     (println (json/write-str topic))
     (println topic_id)
-    ;(wcar* car/hmset* topic)
+    ; 点过赞的，这个要过期expire
+    (wcar* (car/sadd (str "liked:" topic_id) user_id))
+    (wcar* (car/expire (str "liked:" topic_id) expire_time))
 
-    (wcar* (car/hmset* (str "topic:" topic_id) topic))
+    ; hash 存值
+    (assoc topic "timestamp" timestamp)
+    (wcar* (car/hmset* topic_id_str topic))
+
+    ; 积分表，可以按照积分查询
+    (wcar* (car/zadd "score:" topic_id_str (+ timestamp vote_score_per_day)))
+
+    ; 时间表，可以按照时间查
+    (wcar* (car/zadd "time:" topic_id_str timestamp))
     )
   )
 
