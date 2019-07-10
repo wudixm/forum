@@ -10,6 +10,20 @@
 (defn all_topic [seqs length]
   )
 (defn get_topic_by_id [_id]
+  (let [topic (wcar* (car/hgetall (str "topic:" _id)))
+        topic_obj (reduce (fn [x y]
+                            (if (string? x)
+                              (hash-map x y)
+                              (if (map? x)
+                                [x y]
+                                (assoc (first x) (last x) y)
+                                ))) topic )
+        ]
+    (println topic)
+    (println topic_obj)
+    (println (type topic_obj))
+    topic_obj
+    )
   )
 (defn inc_topic_id []
   (wcar* (car/incr "topic:"))
@@ -28,7 +42,10 @@
     (wcar* (car/hmset* (str "topic:" topic_id) topic))
     )
   )
-(create_topic "1" "2" 3)
+
+
+;(get_topic_by_id 11)
+;(create_topic "1" "2" 3)
 ; (all_topic 0 1)
 ;(get_topic_by_id 24)
 ;(wcar* (car/get "test"))
