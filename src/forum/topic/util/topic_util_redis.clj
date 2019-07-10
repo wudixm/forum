@@ -7,6 +7,17 @@
 
             ))
 
+(defn fill_topic [topic_obj]
+
+  ;(hash-map "name" (:name topic)
+  ;          "desc" (:description topic)
+  ;          "id" (:id topic)
+  ;          "user_id" (:user_id topic)
+  ;          "username" (:name (user_info (:user_id topic)))
+  ;          "like_count" (:like_count topic)
+  ;          "comment_count" (:comment_count topic)
+  ;"created_at" (let [diff (- (System/currentTimeMillis) (.getTime (:created_at topic)))
+  )
 (defn all_topic [seqs length]
   )
 (defn get_topic_by_id [_id]
@@ -32,7 +43,7 @@
   ;(let [stmt (jdbc/execute! db-spec ["insert into topic_info (name, description, user_id) values (?, ?, ?) ;" title content user_id] )
   ;      ])
   ;"success"
-  (let [topic (hash-map :title title :content content :user_id user_id)
+  (let [topic (hash-map "name" title "description" content "user_id" user_id)
         topic_id (inc_topic_id)
         ]
     (println (json/write-str topic))
