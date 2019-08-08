@@ -28,8 +28,7 @@
   (let [host_str (.toString (InetAddress/getLocalHost))]
     (println host_str)                                      ; hoytMacBook-Pro.local/192.168.202.210
     (println "host_str")
-    (if (> (.indexOf host_str "hoytMacBook") -1)
-
+    (if (or (> (.indexOf host_str "hoytMacBook") -1 ) (> (.indexOf host_str "iz8vbcmllue4daadc7mfm8z") -1))
       true
       false
       )
