@@ -3,7 +3,7 @@ web:
   command: lein run
   ports:
     - "8081:8081"
-    - "6379:6379"
+#    - "6379:6379" //bind: address already in use
   volumes:
     - ".:/mnt"
   # restart: always
