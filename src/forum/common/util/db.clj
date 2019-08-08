@@ -48,7 +48,12 @@
     ; ; 定义两种server-conn 给不同环境redis 用
     ; )
   ; )
-(def server1-conn {:pool {} :spec {:uri "redis://127.0.0.1:6379/1"}})
+(def server1-conn
+  (if (is_local_mac)
+    {:pool {} :spec {:uri "redis://127.0.0.1:6379/1"}}
+    {:pool {} :spec {:uri "redis://172.26.158.219:6379/1"}}
+    )
+  )
 (defmacro wcar* [& body] `(car/wcar server1-conn ~@body))
 ;(println db-spec)
 ;(println server1-conn)
