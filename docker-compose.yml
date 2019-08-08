@@ -3,6 +3,7 @@ web:
   command: lein run
   ports:
     - "8081:8081"
+    - "6379:6379"
   volumes:
     - ".:/mnt"
   # restart: always
