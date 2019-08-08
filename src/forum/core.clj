@@ -188,4 +188,4 @@
 (defn stop [server]
   (server :timeout 10)
   )
-(login_user "fdsafdsaf@aaa.com" 1 )
+;(login_user "fdsafdsaf@aaa.com" 1 )
