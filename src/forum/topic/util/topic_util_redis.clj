@@ -25,6 +25,7 @@
   (hash-map "name")
   )
 (defn all_topic [seqs length]
+  (wcar* (car/zrangebyscore "score:" (- (now_time_stamp) 3600) "+inf"))
   )
 (defn get_topic_by_id [_id]
   (let [topic (wcar* (car/hgetall (str "topic:" _id)))
@@ -48,20 +49,42 @@
   (let [topic_id_str (str "topic:" topic_id)
         timestamp (now_time_stamp)
         an_hour_ago_timestamp (- (now_time_stamp) 3600)
-        within-one-hour (wcar* (car/zrangebyscore "score:" (- (now_time_stamp) 3600) "+inf"))
+        within-one-hour (some #(= topic_id_str %) (wcar* (car/zrangebyscore "score:" (- (now_time_stamp) 3600) "+inf")))
+        is_liked (if within-one-hour (= 1 (wcar* (car/sismember (str "liked:" topic_id) user_id))) false)
         ]
 
     ; 判断是否已经超时1 小时
+    ; 还要判断是否已经点过赞
     (println timestamp)
     (println an_hour_ago_timestamp)
 
-    (if (some #(= topic_id_str %) within-one-hour)
+    (if (and within-one-hour (not is_liked))
       (do
-        (wcar* (car/hincrby topic_id_str "like_count" 1))
-        (wcar* (car/zincrby "score:" topic_id_str score_per_like))
-        (wcar* (car/sadd (str "liked:" topic_id) user_id))
+        (wcar* (car/multi))
+        (try
+          (println "before inc like count")
+          (wcar* (car/hincrby topic_id_str "like_count" 1))
+          (println "before inc score count")
+          (wcar* (car/zincrby "score:" score_per_like topic_id_str))
+          (println "before add user_id to liked:topic_id")
+          (wcar* (car/sadd (str "liked:" topic_id) user_id))
+          (println "after all ")
+          (wcar* (car/exec))
+          (catch Throwable e
+            (println "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+            ;(.printStackTrace e)
+            ;(println (str "exception e " (.getMessage e)))
+            (wcar* (car/discard))
+            )
+          (finally (println "finally print")))
         )
-      (do ))
+      (do
+        (if (not within-one-hour)
+          "帖子不存在，超过1 小时"
+          "您已经点过赞了"
+          )
+        )
+      )
 
     )
   )
@@ -104,7 +127,7 @@
   )
 
 
-;(get_topic_by_id 11)
+;(get_topic_by_id 11
 ;(create_topic "1" "2" 3)
 ; (all_topic 0 1)
 ;(get_topic_by_id 24)
