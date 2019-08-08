@@ -44,8 +44,9 @@
   (let [topic (wcar* (car/hgetall topic_id_str))
         topic_obj (apply hash-map topic)
         created_at_st (add_unit_to_time (Integer/parseInt (get topic_obj "timestamp")))
-        username (get (user_info (get topic_obj "user_id") ) :name)
+        username (get (user_info (get topic_obj "user_id")) :name)
         result (assoc topic_obj "created_at" created_at_st "username" username "desc" (get topic_obj "description"))
+        _id (subs topic_id_str 6)
         ]
     (println topic_id_str)
     ; topic_obj
@@ -56,7 +57,7 @@
     ; "comment_count" "0",
     ; "description" "content3"}
     (println result)
-    (dissoc result "description")
+    (assoc (dissoc result "description") "id" _id)
     )
 
   ;(hash-map "name" (:name topic)
@@ -81,21 +82,9 @@
     )
   )
 (defn get_topic_by_id [_id]
-  (let [topic (wcar* (car/hgetall (str "topic:" _id)))
-        topic_obj (reduce (fn [x y]
-                            (if (string? x)
-                              (hash-map x y)
-                              (if (map? x)
-                                [x y]
-                                (assoc (first x) (last x) y)
-                                ))) topic)
-        ]
-    (println topic)
-    (println topic_obj)
-    (println (type topic_obj))
-    topic_obj
-    )
+  (json/write-str (fill_topic (str "topic:" _id)))
   )
+
 (defn like_topic
   "点赞话题"
   [user_id topic_id]
