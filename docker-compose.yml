@@ -7,3 +7,10 @@ web:
   volumes:
     - ".:/mnt"
   # restart: always
+
+redis:
+#  restart: always
+  ports:
+  - 6379:6379  #端口号
+  image: redis #docker 镜像
+  command: redis-server
