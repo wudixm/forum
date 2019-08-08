@@ -150,8 +150,8 @@
     (println session)
     (println user_id)
     (println ())
-    (response "create topic success~") 
     (create_topic title content user_id)
+    (response "create topic success~")
     )
   )
 (defn rand-str [req]
