@@ -1,6 +1,7 @@
 web:
   build: .
   command: lein run
+  networks: app
   ports:
     - "8081:8081"
 #    - "6379:6379" //bind: address already in use
@@ -10,6 +11,7 @@ web:
 
 redis:
 #  restart: always
+  networks: app
   ports:
   - 6379:6379  #端口号
   image: redis #docker 镜像
