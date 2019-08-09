@@ -1,4 +1,4 @@
-version: '2.1'
+version: '3'
 services:
   web:
     build:
@@ -13,17 +13,22 @@ services:
       - ".:/mnt"
 
     networks:
-      default:
-        ipv4_address: 172.17.0.2
+      app:
+        ipv4_address: 172.18.0.2
 
   redis:
     image: redis #docker 镜像
     networks:
-      default:
-        ipv4_address: 172.17.0.3
+      app:
+        ipv4_address: 172.18.0.3
     ports:
       - "6379:6379"  #端口号
     command: redis-server /data/redis.conf
     volumes:
       - "/mnt/redis/data:/data"
     # restart: always
+
+networks:
+  app:
+    external:
+      name: app_name
