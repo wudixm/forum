@@ -13,6 +13,6 @@ redis:
   ports:
   - 6379:6379  #端口号
   image: redis #docker 镜像
-  command: redis-server /data/redis.config
+  command: redis-server /data/redis.conf
   volumes:
     - "/mnt/redis/data:/data"
