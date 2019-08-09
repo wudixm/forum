@@ -20,7 +20,7 @@ services:
     image: redis #docker 镜像
     networks:
       default:
-        ipv4_address: 172.17.0.2
+        ipv4_address: 172.17.0.3
     ports:
       - "6379:6379"  #端口号
     command: redis-server /data/redis.conf
