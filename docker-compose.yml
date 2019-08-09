@@ -1,6 +1,5 @@
 web:
-  build:
-    dockerfile: Dockerfile
+  build: .
   command: lein run
   ports:
     - "8081:8081"
@@ -14,6 +13,6 @@ redis:
   ports:
   - 6379:6379  #端口号
   image: redis #docker 镜像
-  command: redis-server
+  command: redis-server /data/redis.config
   volumes:
-    - ".:/mnt"
+    - "/mnt/redis/data:/data"
