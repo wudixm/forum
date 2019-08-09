@@ -32,3 +32,10 @@ networks:
   app:
     external:
       name: app_name
+
+networks:
+  app:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.18.0.1/16
