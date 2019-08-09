@@ -47,6 +47,6 @@ require.config({
 
 require(["jquery", "bootstrap"], function ($) {
   console.log('in require');
-    $('#bs-example-navbar-collapse-1').show();
+    $('#bsexamplenavbarcollapse1').show();
   console.log('in require');
 });
